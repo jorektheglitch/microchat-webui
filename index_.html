@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<head>
+	<title>[MicroChat]</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		html, body {
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			min-width: 300px;
+			min-height: 300px;
+			/*font-family: Montserrat, Segoe UI, Roboto, Arial, sans-serif;*/
+		}
+		#root {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-items: stretch;
+			width: 100%;
+			height: 100%;
+			grid-template-rows: 1fr min-content;
+			grid-template-columns: 1fr min-content 2fr;
+			grid-template-areas:
+			"sidebar sizer view"
+			"footer footer footer"; 
+		}
+		#sidebar {
+			flex-basis: 30%;
+		}
+		#entrybox {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		#entrybox > div {
+			height: 4em;
+			vertical-align: baseline;
+		}
+		#sidebar-sizer {
+			width: 1px;
+			height: 100%;
+			background-color: rgb(240, 240, 240);
+		}
+		#view {
+			background: rgb(240, 240, 240);
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="root">
+		<div id="sidebar">
+			<div id="entrybox">
+				<div id="item1">Нажми меня (покажу 1)</div>
+				<div id="item2">Нажми меня (покажу 2)</div>
+				<div id="item3">Нажми меня (покажу 3)</div>
+				<div id="item4">Нажми меня (покажу 4)</div>
+			</div>
+		</div>
+		<div id="sidebar-sizer"></div>
+		<div id="view"></div>
+	</div>
+	<script>
+		const view = document.getElementById("view")
+		document.getElementById("item1").addEventListener("click", (e)=>{
+			let text = document.createElement("h1")
+			text.innerText = "1"
+			view.innerHTML = ""
+			view.appendChild(text)
+		})
+		document.getElementById("item2").addEventListener("click", (e)=>{
+			let text = document.createElement("h1")
+			text.innerText = "2"
+			view.innerHTML = ""
+			view.appendChild(text)
+		})
+		document.getElementById("item3").addEventListener("click", (e)=>{
+			let text = document.createElement("h1")
+			text.innerText = "3"
+			view.innerHTML = ""
+			view.appendChild(text)
+		})
+		document.getElementById("item4").addEventListener("click", (e)=>{
+			let text = document.createElement("h1")
+			text.innerText = "4"
+			view.innerHTML = ""
+			view.appendChild(text)
+		})
+	</script>
+</body>
